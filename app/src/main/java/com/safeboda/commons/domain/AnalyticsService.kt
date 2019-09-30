@@ -1,0 +1,35 @@
+package com.safeboda.commons.domain
+
+import androidx.annotation.VisibleForTesting
+import com.safeboda.commons.domain.entity.AnalyticsEvent
+import com.safeboda.commons.domain.entity.AnalyticsUser
+import com.safeboda.commons.domain.provider.AnalyticsProvider
+
+class AnalyticsService(
+    vararg analyticsProviders: AnalyticsProvider
+) : AnalyticsProvider {
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val providerList: List<AnalyticsProvider> = analyticsProviders.toList()
+
+    override fun setUser(user: AnalyticsUser) {
+        providerList.forEach { provider -> provider.setUser(user) }
+    }
+
+    override fun clearUser() {
+        providerList.forEach { provider -> provider.clearUser() }
+    }
+
+    override fun setUserLogged() {
+        providerList.forEach { provider -> provider.setUserLogged() }
+    }
+
+    override fun setUserNotLogged() {
+        providerList.forEach { provider -> provider.setUserNotLogged() }
+    }
+
+    override fun track(event: AnalyticsEvent) {
+        providerList.forEach { provider -> provider.track(event) }
+    }
+
+}
