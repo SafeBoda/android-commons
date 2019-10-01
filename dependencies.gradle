@@ -23,7 +23,7 @@ ext {
     androidTestEspressoVersion = '3.2.0'
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-    // Libraries¡
+    // Mockito
     junitVersion = '4.12'
     mockitoKotlinVersion = '2.2.0'
     mockitoInlineVersion = '2.22.0'
