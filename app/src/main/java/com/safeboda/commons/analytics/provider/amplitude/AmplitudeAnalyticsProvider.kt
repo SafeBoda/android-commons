@@ -2,14 +2,14 @@ package com.safeboda.commons.analytics.provider.amplitude
 
 import android.app.Application
 import com.amplitude.api.Amplitude
-import com.safeboda.commons.R
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
+import org.json.JSONObject
 
-class AmplitudeAnalyticsProvider(app: Application) : AnalyticsProvider {
+class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsProvider {
     private val amplitude = Amplitude.getInstance()
-        .initialize(app.baseContext, app.getString(R.))
+        .initialize(app.baseContext, apiKey)
         .enableForegroundTracking(app)
 
     override fun setUser(user: AnalyticsUser) {
