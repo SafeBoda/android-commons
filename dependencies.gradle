@@ -27,4 +27,7 @@ ext {
     junitVersion = '4.12'
     mockitoKotlinVersion = '2.2.0'
     mockitoInlineVersion = '2.22.0'
+
+    //Amplitude
+    amplitudeVersion = '2.14.1'
 }
