@@ -1,0 +1,30 @@
+ext {
+    // Versioning
+    generateVersionName = { BigDecimal versionCode ->
+        int patch = versionCode.remainder(1000)
+        int minor = (versionCode / 1000).remainder(1000)
+        int major = (versionCode / 1000000).remainder(1000)
+        "$major.$minor.$patch"
+    }
+
+    //App VersionCode Rule: Major_Minor_Patch; The version code structure must be like: AA_XXX_YYY, which
+    //000 <= X <= 999, 000 <= Y <= 999 and 1 <= A <= 99
+    appVersionCode = 1_000_000
+    appVersionName = generateVersionName(appVersionCode)
+
+    // Android
+    minSdkVersion = 19
+    targetSdkVersion = 28
+    versionCode = appVersionCode
+    versionName = appVersionName
+    androidCompileSdkVersion = 28
+    androidCoreVersion = '1.1.0'
+    androidTestRunnerVersion = '1.2.0'
+    androidTestEspressoVersion = '3.2.0'
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    // Mockito
+    junitVersion = '4.12'
+    mockitoKotlinVersion = '2.2.0'
+    mockitoInlineVersion = '2.22.0'
+}
