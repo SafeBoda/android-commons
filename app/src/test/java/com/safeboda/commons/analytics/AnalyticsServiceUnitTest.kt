@@ -1,9 +1,8 @@
-package com.safeboda.commons.domain
+package com.safeboda.commons.analytics
 
 import com.nhaarman.mockitokotlin2.verify
-import com.safeboda.commons.analytics.AnalyticsService
-import com.safeboda.commons.domain.entity.AnalyticsEventFactory.Companion.providesAnalyticsEvent
-import com.safeboda.commons.domain.entity.AnalyticsUserFactory.Companion.providesAnalyticsUser
+import com.safeboda.commons.analytics.entity.AnalyticsEventFactory.Companion.providesAnalyticsEvent
+import com.safeboda.commons.analytics.entity.AnalyticsUserFactory.Companion.providesAnalyticsUser
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 import org.junit.Before
 import org.junit.Test

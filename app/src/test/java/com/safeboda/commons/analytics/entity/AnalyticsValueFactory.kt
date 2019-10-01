@@ -1,4 +1,4 @@
-package com.safeboda.commons.domain.entity
+package com.safeboda.commons.analytics.entity
 
 import com.safeboda.commons.analytics.entity.AnalyticsValue
 

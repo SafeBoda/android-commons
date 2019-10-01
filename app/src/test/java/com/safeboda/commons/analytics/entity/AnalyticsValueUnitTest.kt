@@ -1,6 +1,6 @@
-package com.safeboda.commons.domain.entity
+package com.safeboda.commons.analytics.entity
 
-import com.safeboda.commons.domain.entity.AnalyticsValueFactory.Companion.providesAnalyticsValue
+import com.safeboda.commons.analytics.entity.AnalyticsValueFactory.Companion.providesAnalyticsValue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
@@ -14,7 +14,10 @@ class AnalyticsValueUnitTest {
     fun `getSafeValue should return a list value if value is null`() {
         val value = providesAnalyticsValue(
             value = null,
-            values = listOf(USER, USER)
+            values = listOf(
+                USER,
+                USER
+            )
         )
 
         assert(value.getSafeValue() is List<*>)
