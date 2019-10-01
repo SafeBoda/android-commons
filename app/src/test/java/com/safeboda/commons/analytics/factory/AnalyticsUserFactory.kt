@@ -1,4 +1,4 @@
-package com.safeboda.commons.analytics.entity
+package com.safeboda.commons.analytics.factory
 
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 

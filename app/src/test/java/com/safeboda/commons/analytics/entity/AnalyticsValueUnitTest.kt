@@ -1,6 +1,6 @@
 package com.safeboda.commons.analytics.entity
 
-import com.safeboda.commons.analytics.entity.AnalyticsValueFactory.Companion.providesAnalyticsValue
+import com.safeboda.commons.analytics.factory.AnalyticsValueFactory.Companion.providesAnalyticsValue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner

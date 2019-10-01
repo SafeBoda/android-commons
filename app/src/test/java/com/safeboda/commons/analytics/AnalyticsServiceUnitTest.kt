@@ -1,8 +1,8 @@
 package com.safeboda.commons.analytics
 
 import com.nhaarman.mockitokotlin2.verify
-import com.safeboda.commons.analytics.entity.AnalyticsEventFactory.Companion.providesAnalyticsEvent
-import com.safeboda.commons.analytics.entity.AnalyticsUserFactory.Companion.providesAnalyticsUser
+import com.safeboda.commons.analytics.factory.AnalyticsEventFactory.Companion.providesAnalyticsEvent
+import com.safeboda.commons.analytics.factory.AnalyticsUserFactory.Companion.providesAnalyticsUser
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 import org.junit.Before
 import org.junit.Test
