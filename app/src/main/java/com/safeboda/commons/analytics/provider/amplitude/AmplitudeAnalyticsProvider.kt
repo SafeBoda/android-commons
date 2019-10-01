@@ -39,6 +39,12 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
     }
 
     override fun track(event: AnalyticsEvent) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val jsonObject = JSONObject()
+
+        event.getProperties().forEach {
+            jsonObject.put(it.key.name, it.value.getSafeValue())
+        }
+
+        amplitude.logEvent(event.name, jsonObject)
     }
 }
