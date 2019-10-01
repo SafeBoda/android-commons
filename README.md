@@ -37,7 +37,7 @@ class GoogleAnalyticsProvider : AnalyticsProvider {
 Create an instance of `AnalyticsService` and add `GoogleAnalyticsProvider` to it
 
 ```kotlin
-val analyticsService = AnalyticsService(GoogleAnalyticsProvider())
+val analyticsService = AnalyticsService(listOf(GoogleAnalyticsProvider()))
 ```
 
 
