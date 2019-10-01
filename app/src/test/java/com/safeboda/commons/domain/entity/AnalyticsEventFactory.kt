@@ -1,5 +1,8 @@
 package com.safeboda.commons.domain.entity
 
+import com.safeboda.commons.analytics.entity.AnalyticsEvent
+import com.safeboda.commons.analytics.entity.AnalyticsProperty
+import com.safeboda.commons.analytics.entity.AnalyticsValue
 import com.safeboda.commons.domain.entity.AnalyticsPropertyFactory.Companion.providesAnalyticsProperty
 import com.safeboda.commons.domain.entity.AnalyticsValueFactory.Companion.providesAnalyticsValue
 

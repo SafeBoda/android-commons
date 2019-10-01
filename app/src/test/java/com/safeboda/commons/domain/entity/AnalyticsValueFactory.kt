@@ -1,5 +1,7 @@
 package com.safeboda.commons.domain.entity
 
+import com.safeboda.commons.analytics.entity.AnalyticsValue
+
 class AnalyticsValueFactory {
 
     companion object {

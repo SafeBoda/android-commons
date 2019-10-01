@@ -1,9 +1,9 @@
-package com.safeboda.commons.domain
+package com.safeboda.commons.analytics
 
 import androidx.annotation.VisibleForTesting
-import com.safeboda.commons.domain.entity.AnalyticsEvent
-import com.safeboda.commons.domain.entity.AnalyticsUser
-import com.safeboda.commons.domain.provider.AnalyticsProvider
+import com.safeboda.commons.analytics.entity.AnalyticsEvent
+import com.safeboda.commons.analytics.entity.AnalyticsUser
+import com.safeboda.commons.analytics.provider.AnalyticsProvider
 
 class AnalyticsService(
     vararg analyticsProviders: AnalyticsProvider

@@ -1,7 +1,7 @@
-package com.safeboda.commons.domain.provider
+package com.safeboda.commons.analytics.provider
 
-import com.safeboda.commons.domain.entity.AnalyticsEvent
-import com.safeboda.commons.domain.entity.AnalyticsUser
+import com.safeboda.commons.analytics.entity.AnalyticsEvent
+import com.safeboda.commons.analytics.entity.AnalyticsUser
 
 interface AnalyticsProvider {
 
