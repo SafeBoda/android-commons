@@ -14,7 +14,7 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
 
     companion object {
         private const val JSON_USER_MAIL = "mail"
-        private const val JSON_USER_AGE = "age"
+        private const val JSON_USER_ID = "id"
 
         private const val JSON_USER_LOGGED_IN = "is_user_logged_in"
     }
@@ -22,7 +22,7 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
     override fun setUser(user: AnalyticsUser) {
         val jsonObject = JSONObject().apply {
             put(JSON_USER_MAIL, user.email)
-            put(JSON_USER_AGE, user.id)
+            put(JSON_USER_ID, user.id)
         }
 
         amplitude.setUserProperties(jsonObject)
