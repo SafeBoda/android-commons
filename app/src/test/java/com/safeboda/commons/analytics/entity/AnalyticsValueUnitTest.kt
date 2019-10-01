@@ -5,10 +5,12 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
-private const val USER = "USER"
-
 @RunWith(MockitoJUnitRunner::class)
 class AnalyticsValueUnitTest {
+
+    companion object {
+        private const val USER = "USER"
+    }
 
     @Test
     fun `getSafeValue should return a list value if value is null`() {
