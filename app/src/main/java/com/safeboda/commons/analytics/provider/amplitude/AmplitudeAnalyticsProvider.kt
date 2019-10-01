@@ -12,9 +12,18 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
         .initialize(app.baseContext, apiKey)
         .enableForegroundTracking(app)
 
+    companion object {
+        private const val JSON_USER_MAIL = "mail"
+        private const val JSON_USER_AGE = "age"
+    }
+
     override fun setUser(user: AnalyticsUser) {
-        amplitude.userId = user.id.toString()
-        amplitude.setUserProperties()
+        val jsonObject = JSONObject().apply {
+            put(JSON_USER_MAIL, user.email)
+            put(JSON_USER_AGE, user.id)
+        }
+
+        amplitude.setUserProperties(jsonObject)
     }
 
     override fun clearUser() {
