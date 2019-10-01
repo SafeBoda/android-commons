@@ -15,6 +15,8 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
     companion object {
         private const val JSON_USER_MAIL = "mail"
         private const val JSON_USER_AGE = "age"
+
+        private const val JSON_USER_LOGGED_IN = "is_user_logged_in"
     }
 
     override fun setUser(user: AnalyticsUser) {
@@ -31,11 +33,11 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
     }
 
     override fun setUserLogged() {
-        amplitude.
+        setUserSessionStatus(true)
     }
 
     override fun setUserNotLogged() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setUserSessionStatus(false)
     }
 
     override fun track(event: AnalyticsEvent) {
@@ -46,5 +48,13 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
         }
 
         amplitude.logEvent(event.name, jsonObject)
+    }
+
+    private fun setUserSessionStatus(isLoggedIn: Boolean) {
+        val jsonObject = JSONObject().apply {
+            put(JSON_USER_LOGGED_IN, isLoggedIn)
+        }
+
+        amplitude.setUserProperties(jsonObject)
     }
 }
