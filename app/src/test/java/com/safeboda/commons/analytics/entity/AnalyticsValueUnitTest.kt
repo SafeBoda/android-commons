@@ -5,7 +5,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
-const val USER = "USER"
+private const val USER = "USER"
 
 @RunWith(MockitoJUnitRunner::class)
 class AnalyticsValueUnitTest {
