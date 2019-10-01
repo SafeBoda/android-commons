@@ -1,7 +1,6 @@
 package com.safeboda.commons.analytics.factory
 
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
-import com.safeboda.commons.analytics.entity.AnalyticsProperty
 import com.safeboda.commons.analytics.entity.AnalyticsValue
 
 class AnalyticsEventFactory {
@@ -21,8 +20,8 @@ class AnalyticsEventFactory {
             override val testValue: String
         ) : TestAnalyticEvent(name = "unit_test_event", testValue = testValue) {
 
-            override fun getProperties(): Map<AnalyticsProperty, AnalyticsValue<out Any>> =
-                mapOf(AnalyticsProperty(name = "passenger_email") to AnalyticsValue(testValue))
+            override fun getProperties(): Map<String, AnalyticsValue<out Any>> =
+                mapOf("passenger_email" to AnalyticsValue(testValue))
 
         }
 
