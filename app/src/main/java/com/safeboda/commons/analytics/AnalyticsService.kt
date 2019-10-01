@@ -6,11 +6,11 @@ import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 
 class AnalyticsService(
-    vararg analyticsProviders: AnalyticsProvider
+    analyticsProviders: List<AnalyticsProvider>
 ) : AnalyticsProvider {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val providerList: List<AnalyticsProvider> = analyticsProviders.toList()
+    val providerList: List<AnalyticsProvider> = analyticsProviders
 
     override fun setUser(user: AnalyticsUser) {
         providerList.forEach { provider -> provider.setUser(user) }

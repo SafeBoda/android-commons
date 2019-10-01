@@ -5,16 +5,14 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
+private const val USER = "USER"
+
 @RunWith(MockitoJUnitRunner::class)
 class AnalyticsValueUnitTest {
 
-    companion object {
-        private const val USER = "USER"
-    }
-
     @Test
     fun `getSafeValue should return a list value if value is null`() {
-        val value = providesAnalyticsValue(
+        val analyticsValue = providesAnalyticsValue(
             value = null,
             values = listOf(
                 USER,
@@ -22,27 +20,17 @@ class AnalyticsValueUnitTest {
             )
         )
 
-        assert(value.getSafeValue() is List<*>)
+        assert(analyticsValue.getSafeValue() is List<*>)
     }
 
     @Test
     fun `getSafeValue should return a value if list of values is null`() {
-        val value = providesAnalyticsValue(
+        val analyticsValue = providesAnalyticsValue(
             value = USER,
             values = null
         )
 
-        assert(value.getSafeValue() is String)
-    }
-
-    @Test(expected = Exception::class)
-    fun `getSafeValue should return a exception if both values are null`() {
-        val value = providesAnalyticsValue(
-            value = null,
-            values = null
-        )
-
-        value.getSafeValue()
+        assert(analyticsValue.getSafeValue() is String)
     }
 
 }
