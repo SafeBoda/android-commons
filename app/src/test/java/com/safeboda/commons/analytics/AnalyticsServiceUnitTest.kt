@@ -18,17 +18,14 @@ class AnalyticsServiceUnitTest {
     @Mock
     private lateinit var analyticsProvider: AnalyticsProvider
 
-    private var providerList = listOf<AnalyticsProvider>()
-
     @Before
     fun setUp() {
         analyticsService = AnalyticsService(listOf(analyticsProvider))
-        providerList = analyticsService.analyticsProviders
     }
 
     @Test
     fun `providerList shouldn't be empty after instance`() {
-        assert(providerList.isNotEmpty())
+        assert(analyticsService.analyticsProviders.isNotEmpty())
     }
 
     @Test
@@ -37,7 +34,7 @@ class AnalyticsServiceUnitTest {
 
         analyticsService.setUser(user)
 
-        providerList.forEach { provider ->
+        analyticsService.analyticsProviders.forEach { provider ->
             verify(provider).setUser(user)
         }
     }
@@ -46,7 +43,7 @@ class AnalyticsServiceUnitTest {
     fun `setUserLogged should clear the user for each Analytic provider`() {
         analyticsService.clearUser()
 
-        providerList.forEach { provider ->
+        analyticsService.analyticsProviders.forEach { provider ->
             verify(provider).clearUser()
         }
     }
@@ -55,7 +52,7 @@ class AnalyticsServiceUnitTest {
     fun `setUserLogged should set the user logged for each Analytic provider`() {
         analyticsService.setUserLogged()
 
-        providerList.forEach { provider ->
+        analyticsService.analyticsProviders.forEach { provider ->
             verify(provider).setUserLogged()
         }
     }
@@ -64,7 +61,7 @@ class AnalyticsServiceUnitTest {
     fun `setUserNotLogged should set the not logged user for each Analytic provider`() {
         analyticsService.setUserNotLogged()
 
-        providerList.forEach { provider ->
+        analyticsService.analyticsProviders.forEach { provider ->
             verify(provider).setUserNotLogged()
         }
     }
@@ -75,7 +72,7 @@ class AnalyticsServiceUnitTest {
 
         analyticsService.track(event)
 
-        providerList.forEach { provider ->
+        analyticsService.analyticsProviders.forEach { provider ->
             verify(provider).track(event)
         }
     }
