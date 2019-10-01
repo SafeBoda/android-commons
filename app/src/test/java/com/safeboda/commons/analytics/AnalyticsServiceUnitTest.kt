@@ -22,8 +22,8 @@ class AnalyticsServiceUnitTest {
 
     @Before
     fun setUp() {
-        analyticsService = AnalyticsService(analyticsProvider)
-        providerList = analyticsService.providerList
+        analyticsService = AnalyticsService(listOf(analyticsProvider))
+        providerList = analyticsService.analyticsProviders
     }
 
     @Test
