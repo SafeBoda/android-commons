@@ -27,6 +27,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidCoreVersion"
     implementation "androidx.core:core-ktx:$androidCoreVersion"
 
+    implementation "com.amplitude:android-sdk:$amplitudeVersion"
+
     testImplementation "junit:junit:$junitVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
     testImplementation "org.mockito:mockito-inline:$mockitoInlineVersion"
