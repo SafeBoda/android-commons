@@ -3,7 +3,7 @@ package com.safeboda.commons.analytics.provider
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 
-interface AnalyticsProvider {
+internal interface AnalyticsProvider {
 
     fun setUser(user: AnalyticsUser)
 

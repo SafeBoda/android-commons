@@ -9,7 +9,7 @@ import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
 import com.safeboda.commons.analytics.entity.USER_IDENTIFIER
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 
-class GoogleAnalyticsProvider(
+internal class GoogleAnalyticsProvider(
     context: Context
 ) : AnalyticsProvider {
 

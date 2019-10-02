@@ -6,7 +6,7 @@ import com.safeboda.commons.analytics.entity.*
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 import org.json.JSONObject
 
-class AmplitudeAnalyticsProvider(
+internal class AmplitudeAnalyticsProvider(
     app: Application,
     apiKey: String
 ) : AnalyticsProvider {
