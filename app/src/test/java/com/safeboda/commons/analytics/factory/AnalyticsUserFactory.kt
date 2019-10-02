@@ -7,10 +7,10 @@ class AnalyticsUserFactory {
     companion object {
         fun providesAnalyticsUser(
             id: Long = 1234,
-            email: String = "user@safeboda.com"
+            phoneNumber: String = "+34666111222"
         ) = AnalyticsUser(
             id = id,
-            email = email
+            userIdentifier = phoneNumber
         )
     }
 
