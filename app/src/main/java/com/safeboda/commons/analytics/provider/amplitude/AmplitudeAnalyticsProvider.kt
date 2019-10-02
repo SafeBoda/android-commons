@@ -2,28 +2,23 @@ package com.safeboda.commons.analytics.provider.amplitude
 
 import android.app.Application
 import com.amplitude.api.Amplitude
-import com.safeboda.commons.analytics.entity.AnalyticsEvent
-import com.safeboda.commons.analytics.entity.AnalyticsUser
+import com.safeboda.commons.analytics.entity.*
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 import org.json.JSONObject
 
-class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsProvider {
+class AmplitudeAnalyticsProvider(
+    app: Application,
+    apiKey: String
+) : AnalyticsProvider {
 
     private val amplitude = Amplitude.getInstance()
         .initialize(app.baseContext, apiKey)
         .enableForegroundTracking(app)
 
-    companion object {
-        private const val JSON_USER_MAIL = "mail"
-        private const val JSON_USER_ID = "id"
-
-        private const val JSON_USER_LOGGED_IN = "is_user_logged_in"
-    }
-
     override fun setUser(user: AnalyticsUser) {
         val jsonObject = JSONObject().apply {
-            put(JSON_USER_MAIL, user.email)
-            put(JSON_USER_ID, user.id)
+            put(USER_ID, user.id)
+            put(USER_IDENTIFIER, user.userIdentifier)
         }
 
         amplitude.setUserProperties(jsonObject)
@@ -45,7 +40,7 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
         val jsonObject = JSONObject()
 
         event.getProperties().forEach {
-            jsonObject.put(it.key.name, it.value.getSafeValue())
+            jsonObject.put(it.key, it.value.getSafeValue())
         }
 
         amplitude.logEvent(event.name, jsonObject)
@@ -53,10 +48,10 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
 
     private fun setUserSessionStatus(isLoggedIn: Boolean) {
         val jsonObject = JSONObject().apply {
-            put(JSON_USER_LOGGED_IN, isLoggedIn)
+            put(IS_USER_LOGGED_IN, isLoggedIn)
         }
 
         amplitude.setUserProperties(jsonObject)
     }
-    
+
 }
