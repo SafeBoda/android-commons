@@ -38,10 +38,3 @@ dependencies {
 
     implementation "com.google.firebase:firebase-analytics:$googleAnalyticsVersion"
 }
-
-
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-    kotlinOptions {
-        freeCompilerArgs = ["-XXLanguage:+InlineClasses"]
-    }
-}
