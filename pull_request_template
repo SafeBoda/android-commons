@@ -1,0 +1,16 @@
+## Title of the feature/bug/chore
+
+[JIRA Issue: %JIRA_ISSUE_ID%](https://safeboda.atlassian.net/browse/%JIRA_ISSUE_ID%)
+
+#### Description
+Explain your changes, you may include screenshots or any relevant information.
+
+#### Task status
+Set the status of your PR. If this PR closes the JIRA ticket set CLOSES. If this PR is a partial one, that covers a part of the feature, set PARTIAL.
+
+| Status |
+| ------ |
+| <STATUS: CLOSES/PARTIAL> |
+
+#### How to test it manually
+Explain how you can test manually this feature.
