@@ -35,11 +35,6 @@ dependencies {
 
     androidTestImplementation "androidx.test:runner:$androidTestRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidTestEspressoVersion"
-}
 
-
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-    kotlinOptions {
-        freeCompilerArgs = ["-XXLanguage:+InlineClasses"]
-    }
+    implementation "com.google.firebase:firebase-analytics:$googleAnalyticsVersion"
 }

@@ -28,6 +28,9 @@ ext {
     mockitoKotlinVersion = '2.2.0'
     mockitoInlineVersion = '2.22.0'
 
+    // Google Analytics
+    googleAnalyticsVersion = '17.2.0'
+
     //Amplitude
     amplitudeVersion = '2.14.1'
 }
