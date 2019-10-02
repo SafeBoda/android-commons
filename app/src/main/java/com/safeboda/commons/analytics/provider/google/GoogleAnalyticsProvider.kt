@@ -1,10 +1,13 @@
-package com.safeboda.commons.analytics.provider
+package com.safeboda.commons.analytics.provider.google
 
 import android.content.Context
 import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
+import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
+import com.safeboda.commons.analytics.entity.USER_IDENTIFIER
+import com.safeboda.commons.analytics.provider.AnalyticsProvider
 
 class GoogleAnalyticsProvider(
     context: Context
@@ -14,12 +17,12 @@ class GoogleAnalyticsProvider(
 
     override fun setUser(user: AnalyticsUser) {
         firebaseAnalytics.setUserId(user.id.toString())
-        firebaseAnalytics.setUserProperty("user_identifier", user.userIdentifier)
+        firebaseAnalytics.setUserProperty(USER_IDENTIFIER, user.userIdentifier)
     }
 
     override fun clearUser() {
         firebaseAnalytics.setUserId(null)
-        firebaseAnalytics.setUserProperty("user_identifier", null)
+        firebaseAnalytics.setUserProperty(USER_IDENTIFIER, null)
     }
 
     override fun setUserLogged() {
@@ -32,7 +35,7 @@ class GoogleAnalyticsProvider(
 
     private fun setLoginEvent(isLogged: Boolean) {
         val bundle = Bundle().apply {
-            putBoolean("is_user_logged_in", isLogged)
+            putBoolean(IS_USER_LOGGED_IN, isLogged)
         }
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, bundle)
     }
