@@ -41,3 +41,8 @@ val analyticsService = AnalyticsService(listOf(GoogleAnalyticsProvider()))
 ```
 
 
+## Utils
+
+### How to upload to bintray
+
+In order to upload a new version to JFrog you will have to execute this command in the Android Studio terminal `./gradlew build bintrayUpload --info`
