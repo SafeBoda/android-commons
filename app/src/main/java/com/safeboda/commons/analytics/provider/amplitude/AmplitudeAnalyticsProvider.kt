@@ -8,6 +8,7 @@ import com.safeboda.commons.analytics.provider.AnalyticsProvider
 import org.json.JSONObject
 
 class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsProvider {
+
     private val amplitude = Amplitude.getInstance()
         .initialize(app.baseContext, apiKey)
         .enableForegroundTracking(app)
@@ -57,4 +58,5 @@ class AmplitudeAnalyticsProvider(app: Application, apiKey: String) : AnalyticsPr
 
         amplitude.setUserProperties(jsonObject)
     }
+    
 }
