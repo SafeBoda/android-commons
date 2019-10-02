@@ -27,6 +27,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidCoreVersion"
     implementation "androidx.core:core-ktx:$androidCoreVersion"
 
+    implementation "com.google.firebase:firebase-analytics:$googleAnalyticsVersion"
     implementation "com.amplitude:android-sdk:$amplitudeVersion"
 
     testImplementation "junit:junit:$junitVersion"
@@ -35,6 +36,13 @@ dependencies {
 
     androidTestImplementation "androidx.test:runner:$androidTestRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidTestEspressoVersion"
+}
 
-    implementation "com.google.firebase:firebase-analytics:$googleAnalyticsVersion"
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: '../install.gradle'
+    apply from: '../bintray.gradle'
+}
+
+tasks.withType(Javadoc) {
+    excludes = ['**/*.kt']
 }

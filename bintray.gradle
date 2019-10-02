@@ -43,6 +43,7 @@ bintray {
         name = bintrayName
         desc = libraryDescription
         websiteUrl = siteUrl
+        userOrg = 'safeboda'
         vcsUrl = gitUrl
         licenses = allLicenses
         publish = true

@@ -33,4 +33,27 @@ ext {
 
     //Amplitude
     amplitudeVersion = '2.14.1'
+
+    //Bintray
+    bintrayRepo = 'android-commons'
+    bintrayName = 'android-commons'
+
+    publishedGroupId = 'com.safeboda'
+    libraryName = 'android-commons'
+    artifact = 'commons'
+
+    libraryDescription = 'SafeBoda Android Commons'
+
+    siteUrl = 'https://github.com/SafeBoda/android-commons'
+    gitUrl = 'https://github.com/SafeBoda/android-commons.git'
+
+    libraryVersion = appVersionName
+
+    developerId = 'salvamr'
+    developerName = 'Salvador Martín'
+    developerEmail = 'salvador@safeboda.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
