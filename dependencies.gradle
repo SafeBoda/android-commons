@@ -1,22 +1,9 @@
 ext {
-    // Versioning
-    generateVersionName = { BigDecimal versionCode ->
-        int patch = versionCode.remainder(1000)
-        int minor = (versionCode / 1000).remainder(1000)
-        int major = (versionCode / 1000000).remainder(1000)
-        "$major.$minor.$patch"
-    }
-
-    //App VersionCode Rule: Major_Minor_Patch; The version code structure must be like: AA_XXX_YYY, which
-    //000 <= X <= 999, 000 <= Y <= 999 and 1 <= A <= 99
-    appVersionCode = 1_000_000
-    appVersionName = generateVersionName(appVersionCode)
-
     // Android
     minSdkVersion = 19
     targetSdkVersion = 28
-    versionCode = appVersionCode
-    versionName = appVersionName
+    versionCode = 1
+    versionName = "0.0.1"
     androidCompileSdkVersion = 28
     androidCoreVersion = '1.1.0'
     androidTestRunnerVersion = '1.2.0'
@@ -33,4 +20,27 @@ ext {
 
     //Amplitude
     amplitudeVersion = '2.14.1'
+
+    //Bintray
+    bintrayRepo = 'android'
+    bintrayName = 'android-commons'
+
+    publishedGroupId = 'com.safeboda'
+    libraryName = 'android-commons'
+    artifact = 'android-commons'
+
+    libraryDescription = 'SafeBoda Android Commons'
+
+    siteUrl = 'https://github.com/SafeBoda/android-commons'
+    gitUrl = 'https://github.com/SafeBoda/android-commons.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'mapm14'
+    developerName = 'Manuel Perera'
+    developerEmail = 'manuel@safeboda.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
