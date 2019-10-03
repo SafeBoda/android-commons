@@ -1,4 +1,4 @@
-# Android Commons
+# Android Commons [ ![Download](https://api.bintray.com/packages/safeboda/android-commons/android-commons/images/download.svg?version=1.0.0) ](https://bintray.com/safeboda/android-commons/android-commons/1.0.0/link)
 
 The aim of this library is to content the commons services, providers, API clients, ... for both Android applications. This library must not contain anything related with the presentation layer of Android (base activities, base fragments, custom views ...)
 
