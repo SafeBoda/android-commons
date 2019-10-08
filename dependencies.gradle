@@ -2,8 +2,8 @@ ext {
     // Android
     minSdkVersion = 19
     targetSdkVersion = 28
-    versionCode = 1
-    versionName = "0.0.1"
+    versionCode = 2
+    versionName = "0.0.2"
     androidCompileSdkVersion = 28
     androidCoreVersion = '1.1.0'
     androidTestRunnerVersion = '1.2.0'
@@ -34,7 +34,7 @@ ext {
     siteUrl = 'https://github.com/SafeBoda/android-commons'
     gitUrl = 'https://github.com/SafeBoda/android-commons.git'
 
-    libraryVersion = '0.0.2'
+    libraryVersion = versionName
 
     developerId = 'mapm14'
     developerName = 'Manuel Perera'
