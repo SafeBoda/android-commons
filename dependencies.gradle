@@ -1,0 +1,46 @@
+ext {
+    // Android
+    minSdkVersion = 19
+    targetSdkVersion = 28
+    versionCode = 2
+    versionName = "0.0.2"
+    androidCompileSdkVersion = 28
+    androidCoreVersion = '1.1.0'
+    androidTestRunnerVersion = '1.2.0'
+    androidTestEspressoVersion = '3.2.0'
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    // Mockito
+    junitVersion = '4.12'
+    mockitoKotlinVersion = '2.2.0'
+    mockitoInlineVersion = '2.22.0'
+
+    // Google Analytics
+    googleAnalyticsVersion = '17.2.0'
+
+    //Amplitude
+    amplitudeVersion = '2.14.1'
+
+    //Bintray
+    bintrayRepo = 'android'
+    bintrayName = 'android-commons'
+
+    publishedGroupId = 'com.safeboda'
+    libraryName = 'android-commons'
+    artifact = 'android-commons'
+
+    libraryDescription = 'SafeBoda Android Commons'
+
+    siteUrl = 'https://github.com/SafeBoda/android-commons'
+    gitUrl = 'https://github.com/SafeBoda/android-commons.git'
+
+    libraryVersion = versionName
+
+    developerId = 'mapm14'
+    developerName = 'Manuel Perera'
+    developerEmail = 'manuel@safeboda.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
