@@ -8,10 +8,13 @@ class AnalyticsUserFactory {
         fun providesAnalyticsUser(
             id: Long = 1234,
             phoneNumber: String = "+34666111222"
-        ) = AnalyticsUser(
+        ) = FakeAnalyticsUser(
             id = id,
-            userIdentifier = phoneNumber
+            identifier = phoneNumber
         )
     }
+
+    class FakeAnalyticsUser(id: Long, identifier: String) :
+        AnalyticsUser(id = id, identifier = identifier)
 
 }

@@ -1,9 +1,10 @@
-package com.safeboda.commons.analytics.provider.amplitude
+package com.safeboda.commons.analytics.provider
 
 import android.app.Application
 import com.amplitude.api.Amplitude
-import com.safeboda.commons.analytics.entity.*
-import com.safeboda.commons.analytics.provider.AnalyticsProvider
+import com.safeboda.commons.analytics.entity.AnalyticsEvent
+import com.safeboda.commons.analytics.entity.AnalyticsUser
+import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
 import org.json.JSONObject
 
 class AmplitudeAnalyticsProvider(
@@ -16,12 +17,7 @@ class AmplitudeAnalyticsProvider(
         .enableForegroundTracking(app)
 
     override fun setUser(user: AnalyticsUser) {
-        val jsonObject = JSONObject().apply {
-            put(USER_ID, user.id)
-            put(USER_IDENTIFIER, user.userIdentifier)
-        }
-
-        amplitude.setUserProperties(jsonObject)
+        amplitude.setUserProperties(user.toJsonObject())
     }
 
     override fun clearUser() {
@@ -37,13 +33,7 @@ class AmplitudeAnalyticsProvider(
     }
 
     override fun track(event: AnalyticsEvent) {
-        val jsonObject = JSONObject()
-
-        event.getProperties().forEach {
-            jsonObject.put(it.key, it.value.getSafeValue())
-        }
-
-        amplitude.logEvent(event.name, jsonObject)
+        amplitude.logEvent(event.name, event.toJsonObject())
     }
 
     private fun setUserSessionStatus(isLoggedIn: Boolean) {
