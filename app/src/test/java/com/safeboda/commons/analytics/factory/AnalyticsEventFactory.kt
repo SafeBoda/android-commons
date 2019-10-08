@@ -12,9 +12,9 @@ class AnalyticsEventFactory {
     }
 
     sealed class TestAnalyticEvent(
-        override val name: String,
+        name: String,
         open val testValue: String
-    ) : AnalyticsEvent {
+    ) : AnalyticsEvent(name) {
 
         class UnitTestAnalyticEvent(
             override val testValue: String

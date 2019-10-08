@@ -1,8 +1,17 @@
 package com.safeboda.commons.analytics.entity
 
-interface AnalyticsEvent {
-    val name: String
+import com.safeboda.commons.analytics.extensions.mapToBundle
+import com.safeboda.commons.analytics.extensions.mapToJsonObject
 
-    fun getProperties(): Map<String, AnalyticsValue<out Any>>
+abstract class AnalyticsEvent(
+    val name: String
+) {
+
+    abstract fun getProperties(): Map<String, AnalyticsValue<out Any>>
+
+    fun toBundle() = getProperties().mapToBundle()
+
+    fun toJsonObject() = getProperties().mapToJsonObject()
+
 }
 
