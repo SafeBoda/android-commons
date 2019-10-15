@@ -17,9 +17,9 @@ abstract class AnalyticsEvent(
         _properties[name] = AnalyticsValue(values = values)
     }
 
-    internal fun toBundle() = _properties.mapToBundle()
+    fun toBundle() = _properties.mapToBundle()
 
-    internal fun toJsonObject() = _properties.mapToJsonObject()
+    fun toJsonObject() = _properties.mapToJsonObject()
 
 }
 
