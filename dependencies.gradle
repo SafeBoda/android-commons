@@ -2,8 +2,8 @@ ext {
     // Android
     minSdkVersion = 19
     targetSdkVersion = 28
-    versionCode = 2
-    versionName = "0.0.2"
+    versionCode = 3
+    versionName = "0.0.3"
     androidCompileSdkVersion = 28
     androidCoreVersion = '1.1.0'
     androidTestRunnerVersion = '1.2.0'
@@ -19,7 +19,7 @@ ext {
     googleAnalyticsVersion = '17.2.0'
 
     //Amplitude
-    amplitudeVersion = '2.14.1'
+    amplitudeVersion = '2.23.2'
 
     //Bintray
     bintrayRepo = 'android'
