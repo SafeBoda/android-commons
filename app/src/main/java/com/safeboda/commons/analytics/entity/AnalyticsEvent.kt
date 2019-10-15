@@ -7,19 +7,19 @@ abstract class AnalyticsEvent(
     val name: String
 ) {
 
-    private val _ldProperties = mutableMapOf<String, AnalyticsValue<out Any>>()
+    private val _properties = mutableMapOf<String, AnalyticsValue<out Any>>()
 
     protected fun <T : Any> addProperty(name: String, value: T) {
-        _ldProperties[name] = AnalyticsValue(value = value)
+        _properties[name] = AnalyticsValue(value = value)
     }
 
     protected fun <T : Any> addListOfProperties(name: String, values: List<T>) {
-        _ldProperties[name] = AnalyticsValue(values = values)
+        _properties[name] = AnalyticsValue(values = values)
     }
 
-    internal fun toBundle() = _ldProperties.mapToBundle()
+    internal fun toBundle() = _properties.mapToBundle()
 
-    internal fun toJsonObject() = _ldProperties.mapToJsonObject()
+    internal fun toJsonObject() = _properties.mapToJsonObject()
 
 }
 
