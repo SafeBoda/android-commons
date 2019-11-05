@@ -16,6 +16,6 @@ interface AnalyticsProvider {
 
     fun track(event: AnalyticsEvent)
 
-    fun trackScreen(activity: Activity, fragmentName: String?)
+    fun trackScreen(activity: Activity, screenName: String)
 
 }

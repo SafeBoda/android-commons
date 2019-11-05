@@ -30,10 +30,10 @@ class AnalyticsService(
     }
 
     /**
-     * @param[fragmentName] should be null when calling this method from an [Activity]
+     * @param[screenName] should be the name of the event
      */
-    override fun trackScreen(activity: Activity, fragmentName: String?) {
-        analyticsProviders.forEach { provider -> provider.trackScreen(activity, fragmentName) }
+    override fun trackScreen(activity: Activity, screenName: String) {
+        analyticsProviders.forEach { provider -> provider.trackScreen(activity, screenName) }
     }
 
 }

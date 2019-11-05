@@ -46,11 +46,11 @@ class AmplitudeAnalyticsProvider(
         amplitude.setUserProperties(jsonObject)
     }
 
-    override fun trackScreen(activity: Activity, fragmentName: String?) {
-        val event: AnalyticsEvent = if (fragmentName.isNullOrEmpty()) {
+    override fun trackScreen(activity: Activity, screenName: String) {
+        val event: AnalyticsEvent = if (screenName.isEmpty()) {
             AnalyticsEventFactory.createAnalyticsEvent<AnalyticsEvent>(activity::class.java.simpleName, listOf())
         } else {
-            AnalyticsEventFactory.createAnalyticsEvent<AnalyticsEvent>(fragmentName, listOf())
+            AnalyticsEventFactory.createAnalyticsEvent<AnalyticsEvent>(screenName, listOf())
         }
 
         track(event)

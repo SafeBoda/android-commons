@@ -82,7 +82,7 @@ class AnalyticsServiceUnitTest {
     @Test
     fun `trackScreen should track the screen for each Analytic provider`() {
         val activity: Activity = mock()
-        val screenName = "HomeFragment"
+        val screenName = "Home"
 
         analyticsService.trackScreen(activity, screenName)
 
