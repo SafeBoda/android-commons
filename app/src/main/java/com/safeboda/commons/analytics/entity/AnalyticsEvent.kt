@@ -7,13 +7,13 @@ abstract class AnalyticsEvent(
     open val name: String
 ) {
 
-    private val _properties = mutableMapOf<String, AnalyticsValue<out Any>>()
+    private val _properties = mutableMapOf<String, AnalyticsValue<out Any?>>()
 
-    protected fun <T : Any> addProperty(name: String, value: T) {
+    protected fun <T : Any?> addProperty(name: String, value: T) {
         _properties[name] = AnalyticsValue(value = value)
     }
 
-    protected fun <T : Any> addListOfProperties(name: String, values: List<T>) {
+    protected fun <T : Any?> addListOfProperties(name: String, values: List<T>) {
         _properties[name] = AnalyticsValue(values = values)
     }
 

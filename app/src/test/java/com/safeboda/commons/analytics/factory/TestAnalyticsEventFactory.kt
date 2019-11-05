@@ -3,7 +3,7 @@ package com.safeboda.commons.analytics.factory
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsValue
 
-class AnalyticsEventFactory {
+class TestAnalyticsEventFactory {
 
     companion object {
         fun providesAnalyticsEvent(
