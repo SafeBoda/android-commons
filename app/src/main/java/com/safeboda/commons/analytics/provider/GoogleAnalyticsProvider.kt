@@ -8,7 +8,7 @@ import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
 import com.safeboda.commons.analytics.entity.USER_IDENTIFIER
 
-class GoogleAnalyticsProvider(
+open class GoogleAnalyticsProvider(
     context: Context
 ) : AnalyticsProvider {
 
