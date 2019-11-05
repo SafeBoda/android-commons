@@ -1,13 +1,12 @@
 package com.safeboda.commons.analytics
 
-import androidx.annotation.VisibleForTesting
+import android.app.Activity
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 
 class AnalyticsService(
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val analyticsProviders: List<AnalyticsProvider>
+    internal val analyticsProviders: List<AnalyticsProvider>
 ) : AnalyticsProvider {
 
     override fun setUser(user: AnalyticsUser) {
