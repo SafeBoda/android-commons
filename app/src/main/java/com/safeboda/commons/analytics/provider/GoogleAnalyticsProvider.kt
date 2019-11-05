@@ -17,12 +17,12 @@ open class GoogleAnalyticsProvider(
 
     override fun setUser(user: AnalyticsUser) {
         firebaseAnalytics.setUserId(user.id.toString())
-        firebaseAnalytics.setUserProperty(USER_IDENTIFIER, user.identifier)
+        setUserProperty(USER_IDENTIFIER, user.identifier)
     }
 
     override fun clearUser() {
         firebaseAnalytics.setUserId(null)
-        firebaseAnalytics.setUserProperty(USER_IDENTIFIER, null)
+        setUserProperty(USER_IDENTIFIER, null)
     }
 
     override fun setUserLogged() {
@@ -46,6 +46,10 @@ open class GoogleAnalyticsProvider(
 
     override fun trackScreen(activity: Activity, screenName: String) {
         firebaseAnalytics.setCurrentScreen(activity, screenName, null)
+    }
+
+    fun setUserProperty(propertyName: String, property: String?) {
+        firebaseAnalytics.setUserProperty(propertyName, property)
     }
 
 }
