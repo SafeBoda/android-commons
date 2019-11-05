@@ -4,7 +4,7 @@ import com.safeboda.commons.analytics.extensions.mapToBundle
 import com.safeboda.commons.analytics.extensions.mapToJsonObject
 
 abstract class AnalyticsEvent(
-    val name: String
+    open val name: String
 ) {
 
     private val _properties = mutableMapOf<String, AnalyticsValue<out Any>>()
