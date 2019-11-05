@@ -29,8 +29,11 @@ class AnalyticsService(
         analyticsProviders.forEach { provider -> provider.track(event) }
     }
 
-    override fun trackScreen(activity: Activity, screenName: String) {
-        analyticsProviders.forEach { provider -> provider.trackScreen(activity, screenName) }
+    /**
+     * @param[fragmentName] should be null when calling this method from an [Activity]
+     */
+    override fun trackScreen(activity: Activity, fragmentName: String?) {
+        analyticsProviders.forEach { provider -> provider.trackScreen(activity, fragmentName) }
     }
 
 }
