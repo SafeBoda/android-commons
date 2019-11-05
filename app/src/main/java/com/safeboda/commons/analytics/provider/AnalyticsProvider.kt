@@ -1,5 +1,6 @@
 package com.safeboda.commons.analytics.provider
 
+import android.app.Activity
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 
@@ -14,5 +15,7 @@ interface AnalyticsProvider {
     fun setUserNotLogged()
 
     fun track(event: AnalyticsEvent)
+
+    fun trackScreen(activity: Activity, screenName: String)
 
 }

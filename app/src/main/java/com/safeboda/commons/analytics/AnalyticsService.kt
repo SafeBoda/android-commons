@@ -29,4 +29,8 @@ class AnalyticsService(
         analyticsProviders.forEach { provider -> provider.track(event) }
     }
 
+    override fun trackScreen(activity: Activity, screenName: String) {
+        analyticsProviders.forEach { provider -> provider.trackScreen(activity, screenName) }
+    }
+
 }

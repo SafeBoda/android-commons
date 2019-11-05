@@ -1,8 +1,10 @@
 package com.safeboda.commons.analytics.provider
 
+import android.app.Activity
 import android.app.Application
 import com.amplitude.api.Amplitude
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
+import com.safeboda.commons.analytics.entity.AnalyticsEventFactory
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
 import org.json.JSONObject
@@ -42,6 +44,11 @@ class AmplitudeAnalyticsProvider(
         }
 
         amplitude.setUserProperties(jsonObject)
+    }
+
+    override fun trackScreen(activity: Activity, screenName: String) {
+        val event = AnalyticsEventFactory.createAnalyticsEvent(screenName, listOf())
+        track(event)
     }
 
 }
