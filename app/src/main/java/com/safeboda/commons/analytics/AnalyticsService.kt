@@ -1,13 +1,12 @@
 package com.safeboda.commons.analytics
 
-import androidx.annotation.VisibleForTesting
+import android.app.Activity
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 
 class AnalyticsService(
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val analyticsProviders: List<AnalyticsProvider>
+    internal val analyticsProviders: List<AnalyticsProvider>
 ) : AnalyticsProvider {
 
     override fun setUser(user: AnalyticsUser) {
@@ -28,6 +27,13 @@ class AnalyticsService(
 
     override fun track(event: AnalyticsEvent) {
         analyticsProviders.forEach { provider -> provider.track(event) }
+    }
+
+    /**
+     * @param[screenName] should be the name of the event
+     */
+    override fun trackScreen(activity: Activity, screenName: String) {
+        analyticsProviders.forEach { provider -> provider.trackScreen(activity, screenName) }
     }
 
 }

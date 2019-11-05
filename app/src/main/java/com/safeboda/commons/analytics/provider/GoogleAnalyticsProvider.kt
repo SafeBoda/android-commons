@@ -1,5 +1,6 @@
 package com.safeboda.commons.analytics.provider
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -8,7 +9,7 @@ import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
 import com.safeboda.commons.analytics.entity.USER_IDENTIFIER
 
-class GoogleAnalyticsProvider(
+open class GoogleAnalyticsProvider(
     context: Context
 ) : AnalyticsProvider {
 
@@ -41,6 +42,10 @@ class GoogleAnalyticsProvider(
             putBoolean(IS_USER_LOGGED_IN, isLogged)
         }
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, bundle)
+    }
+
+    override fun trackScreen(activity: Activity, screenName: String) {
+        firebaseAnalytics.setCurrentScreen(activity, screenName, null)
     }
 
 }

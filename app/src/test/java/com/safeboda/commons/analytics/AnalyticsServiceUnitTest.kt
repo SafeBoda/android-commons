@@ -1,7 +1,9 @@
 package com.safeboda.commons.analytics
 
+import android.app.Activity
+import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
-import com.safeboda.commons.analytics.factory.AnalyticsEventFactory.Companion.providesAnalyticsEvent
+import com.safeboda.commons.analytics.factory.TestAnalyticsEventFactory.Companion.providesAnalyticsEvent
 import com.safeboda.commons.analytics.factory.AnalyticsUserFactory.Companion.providesAnalyticsUser
 import com.safeboda.commons.analytics.provider.AnalyticsProvider
 import org.junit.Before
@@ -74,6 +76,18 @@ class AnalyticsServiceUnitTest {
 
         analyticsService.analyticsProviders.forEach { provider ->
             verify(provider).track(event)
+        }
+    }
+
+    @Test
+    fun `trackScreen should track the screen for each Analytic provider`() {
+        val activity: Activity = mock()
+        val screenName = "Home"
+
+        analyticsService.trackScreen(activity, screenName)
+
+        analyticsService.analyticsProviders.forEach { provider ->
+            verify(provider).trackScreen(activity, screenName)
         }
     }
 
