@@ -3,7 +3,6 @@ package com.safeboda.commons.analytics.provider
 import android.app.Activity
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
-import org.jetbrains.annotations.Nullable
 
 interface AnalyticsProvider {
 
@@ -17,6 +16,6 @@ interface AnalyticsProvider {
 
     fun track(event: AnalyticsEvent)
 
-    fun trackScreen(@Nullable activity: Activity?, screenName: String, @Nullable overrideScreenClass: String?)
+    fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?)
 
 }
