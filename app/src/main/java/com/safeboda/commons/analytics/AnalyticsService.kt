@@ -13,8 +13,8 @@ class AnalyticsService(
         analyticsProviders.forEach { provider -> provider.setUser(user) }
     }
 
-    override fun clearUser() {
-        analyticsProviders.forEach { provider -> provider.clearUser() }
+    override fun clearUser(user: AnalyticsUser) {
+        analyticsProviders.forEach { provider -> provider.clearUser(user) }
     }
 
     override fun setUserLogged() {
@@ -31,9 +31,10 @@ class AnalyticsService(
 
     /**
      * @param[screenName] should be the name of the event
+     * @param[overrideScreenClass] should be null for Activities and for Fragments should be the name of the Fragment class
      */
-    override fun trackScreen(activity: Activity, screenName: String) {
-        analyticsProviders.forEach { provider -> provider.trackScreen(activity, screenName) }
+    override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
+        analyticsProviders.forEach { provider -> provider.trackScreen(activity, screenName, overrideScreenClass) }
     }
 
 }

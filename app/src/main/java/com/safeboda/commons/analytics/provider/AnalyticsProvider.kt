@@ -8,7 +8,7 @@ interface AnalyticsProvider {
 
     fun setUser(user: AnalyticsUser)
 
-    fun clearUser()
+    fun clearUser(user: AnalyticsUser)
 
     fun setUserLogged()
 
@@ -16,6 +16,6 @@ interface AnalyticsProvider {
 
     fun track(event: AnalyticsEvent)
 
-    fun trackScreen(activity: Activity, screenName: String)
+    fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?)
 
 }

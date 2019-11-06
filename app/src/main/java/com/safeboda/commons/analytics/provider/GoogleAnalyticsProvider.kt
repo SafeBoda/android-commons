@@ -7,9 +7,8 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
-import com.safeboda.commons.analytics.entity.USER_IDENTIFIER
 
-open class GoogleAnalyticsProvider(
+class GoogleAnalyticsProvider(
     context: Context
 ) : AnalyticsProvider {
 
@@ -17,12 +16,16 @@ open class GoogleAnalyticsProvider(
 
     override fun setUser(user: AnalyticsUser) {
         firebaseAnalytics.setUserId(user.id.toString())
-        setUserProperty(USER_IDENTIFIER, user.identifier)
+        user.getProperties().forEach { (propertyName: String, value: Any?) ->
+            firebaseAnalytics.setUserProperty(propertyName, value.toString())
+        }
     }
 
-    override fun clearUser() {
+    override fun clearUser(user: AnalyticsUser) {
         firebaseAnalytics.setUserId(null)
-        setUserProperty(USER_IDENTIFIER, null)
+        user.getProperties().forEach { (propertyName: String, _: Any?) ->
+            firebaseAnalytics.setUserProperty(propertyName, null)
+        }
     }
 
     override fun setUserLogged() {
@@ -44,12 +47,10 @@ open class GoogleAnalyticsProvider(
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, bundle)
     }
 
-    override fun trackScreen(activity: Activity, screenName: String) {
-        firebaseAnalytics.setCurrentScreen(activity, screenName, null)
-    }
-
-    fun setUserProperty(propertyName: String, property: String?) {
-        firebaseAnalytics.setUserProperty(propertyName, property)
+    override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
+        activity?.let { safeActivity ->
+            firebaseAnalytics.setCurrentScreen(safeActivity, screenName, overrideScreenClass)
+        }
     }
 
 }

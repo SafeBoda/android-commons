@@ -3,7 +3,7 @@ package com.safeboda.commons.analytics.extensions
 import android.os.Bundle
 import org.json.JSONObject
 
-fun <V : Any> Map<String, V>.mapToBundle() = Bundle().apply {
+fun <V : Any?> Map<String, V>.mapToBundle() = Bundle().apply {
     forEach {
         when (it.value) {
             is List<*> -> (it.value as List<*>).forEach { propertyValue ->
@@ -19,7 +19,7 @@ fun <V : Any> Map<String, V>.mapToBundle() = Bundle().apply {
     }
 }
 
-fun <V : Any> Map<String, V>.mapToJsonObject() = JSONObject().apply {
+fun <V : Any> Map<String, V?>.mapToJsonObject() = JSONObject().apply {
     forEach {
         put(it.key, it.value)
     }
