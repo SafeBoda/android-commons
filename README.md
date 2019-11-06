@@ -71,9 +71,9 @@ class SplashAnalyticsEventManager {
         ): AnalyticsEvent = AnalyticsEventFactory.createAnalyticsEvent(
             name = EVENT_SPLASH_SCREEN_LOGIN,
             properties = listOf(
-                ID_PROPERTY to id,
-                WALLET_ID_PROPERTY to walletId,
-                AMOUNT_PROPERTY to amount
+                PROPERTY_ID to id,
+                PROPERTY_WALLET_ID to walletId,
+                PROPERTY_AMOUNT to amount
             )
         )
 
@@ -84,9 +84,9 @@ class SplashAnalyticsEventManager {
         // endregion
         
         // region PROPERTIES
-        private const val ID_PROPERTY = "id"
-        private const val WALLET_ID_PROPERTY = "wallet_id"
-        private const val AMOUNT_PROPERTY = "amount"
+        private const val PROPERTY_ID = "id"
+        private const val PROPERTY_WALLET_ID = "wallet_id"
+        private const val PROPERTY_AMOUNT = "amount"
         // endregion
     }
 
