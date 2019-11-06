@@ -1,11 +1,11 @@
 package com.safeboda.commons.analytics.entity
 
-class AnalyticsEventFactory(name: String) : AnalyticsEvent(name) {
+class AnalyticsEventFactory(override val name: String) : AnalyticsEvent(name) {
 
     companion object {
-        fun <T : Any> createAnalyticsEvent(
+        fun <T : Any?> createAnalyticsEvent(
             name: String,
-            properties: List<Pair<String, T>>
+            properties: List<Pair<String, T>> = listOf()
         ) =
             AnalyticsEventFactory(name).apply {
                 properties.forEach {
@@ -13,7 +13,7 @@ class AnalyticsEventFactory(name: String) : AnalyticsEvent(name) {
                 }
             }
 
-        fun <T : Any> createAnalyticsEventWithListValues(
+        fun <T : Any?> createAnalyticsEventWithListValues(
             name: String,
             pair: Pair<String, List<T>>
         ) =
