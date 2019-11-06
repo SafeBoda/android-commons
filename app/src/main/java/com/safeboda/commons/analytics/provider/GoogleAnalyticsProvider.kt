@@ -44,8 +44,10 @@ open class GoogleAnalyticsProvider(
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, bundle)
     }
 
-    override fun trackScreen(activity: Activity, screenName: String) {
-        firebaseAnalytics.setCurrentScreen(activity, screenName, null)
+    override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
+        activity?.let { safeActivity ->
+            firebaseAnalytics.setCurrentScreen(safeActivity, screenName, overrideScreenClass)
+        }
     }
 
     fun setUserProperty(propertyName: String, property: String?) {
