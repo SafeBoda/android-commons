@@ -1,8 +1,5 @@
 package com.safeboda.commons.analytics.entity
 
-import com.safeboda.commons.analytics.extensions.mapToBundle
-import com.safeboda.commons.analytics.extensions.mapToJsonObject
-
 abstract class AnalyticsUser(
     val id: Long?,
     val identifier: String?
@@ -18,9 +15,5 @@ abstract class AnalyticsUser(
     fun addProperty(key: String, value: Any?) {
         properties[key] = value
     }
-
-    fun toBundle() = properties.mapToBundle()
-
-    fun toJsonObject() = properties.mapToJsonObject()
 
 }
