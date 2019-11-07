@@ -1,26 +1,34 @@
 package com.safeboda.commons.analytics.extensions
 
 import android.os.Bundle
+import com.safeboda.commons.analytics.entity.AnalyticsValue
 import org.json.JSONObject
 
-fun <V : Any?> Map<String, V>.mapToBundle() = Bundle().apply {
-    forEach {
-        when (it.value) {
-            is List<*> -> (it.value as List<*>).forEach { propertyValue ->
-                putString(it.key, propertyValue.toString())
+fun MutableMap<String, AnalyticsValue<out Any?>>.mapToBundle() = Bundle().apply {
+    forEach { map ->
+        when (val safeValue = map.value.getSafeValue()) {
+            is List<*> -> safeValue.forEach { propertyValue ->
+                putString(map.key, propertyValue.toString())
             }
-            is Boolean -> putBoolean(it.key, it.value as Boolean)
-            is Long -> putLong(it.key, it.value as Long)
-            is Int -> putInt(it.key, it.value as Int)
-            is Float -> putFloat(it.key, it.value as Float)
-            is Double -> putDouble(it.key, it.value as Double)
-            else -> putString(it.key, it.value.toString())
+            is Boolean -> putBoolean(map.key, safeValue)
+            is Long -> putLong(map.key, safeValue)
+            is Int -> putInt(map.key, safeValue)
+            is Float -> putFloat(map.key, safeValue)
+            is Double -> putDouble(map.key, safeValue)
+            is String -> putString(map.key, safeValue)
+            else -> putString(map.key, safeValue.toString())
         }
     }
 }
 
-fun <V : Any> Map<String, V?>.mapToJsonObject() = JSONObject().apply {
+fun <V : Any?> Map<String, V>.mapToJsonObject() = JSONObject().apply {
     forEach {
         put(it.key, it.value)
+    }
+}
+
+fun MutableMap<String, AnalyticsValue<out Any?>>.mapToJsonObjectFromAnalyticsValue() = JSONObject().apply {
+    forEach { map ->
+        put(map.key, map.value.getSafeValue())
     }
 }

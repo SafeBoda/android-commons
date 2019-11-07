@@ -1,7 +1,7 @@
 package com.safeboda.commons.analytics.entity
 
 import com.safeboda.commons.analytics.extensions.mapToBundle
-import com.safeboda.commons.analytics.extensions.mapToJsonObject
+import com.safeboda.commons.analytics.extensions.mapToJsonObjectFromAnalyticsValue
 
 abstract class AnalyticsEvent(
     open val name: String
@@ -19,7 +19,7 @@ abstract class AnalyticsEvent(
 
     fun toBundle() = _properties.mapToBundle()
 
-    fun toJsonObject() = _properties.mapToJsonObject()
+    fun toJsonObject() = _properties.mapToJsonObjectFromAnalyticsValue()
 
 }
 

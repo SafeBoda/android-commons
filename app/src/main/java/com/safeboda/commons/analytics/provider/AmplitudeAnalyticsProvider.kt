@@ -7,6 +7,7 @@ import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsEventFactory
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
+import com.safeboda.commons.analytics.extensions.mapToJsonObject
 import org.json.JSONObject
 
 class AmplitudeAnalyticsProvider(
@@ -19,7 +20,7 @@ class AmplitudeAnalyticsProvider(
         .enableForegroundTracking(app)
 
     override fun setUser(user: AnalyticsUser) {
-        amplitude.setUserProperties(user.toJsonObject())
+        amplitude.setUserProperties(user.getProperties().mapToJsonObject())
     }
 
     override fun clearUser(user: AnalyticsUser) {
