@@ -21,5 +21,7 @@ abstract class AnalyticsEvent(
 
     fun toJsonObject() = _properties.mapToJsonObjectFromAnalyticsValue()
 
+    fun toMap() = _properties.toMap()
+
 }
 

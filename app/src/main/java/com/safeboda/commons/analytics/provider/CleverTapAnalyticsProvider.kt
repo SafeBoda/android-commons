@@ -20,6 +20,7 @@ class CleverTapAnalyticsProvider(
 
     override fun clearUser(user: AnalyticsUser) {
         cleverTap?.removeValueForKey(user.id.toString())
+        cleverTap?.removeValueForKey(user.identifier)
     }
 
     override fun setUserLogged() {
@@ -31,7 +32,7 @@ class CleverTapAnalyticsProvider(
     }
 
     override fun track(event: AnalyticsEvent) {
-        cleverTap?.pushEvent(event.name)
+        cleverTap?.pushEvent(event.name, event.toMap())
     }
 
     override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
