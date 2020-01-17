@@ -19,8 +19,9 @@ class CleverTapAnalyticsProvider(
     }
 
     override fun clearUser(user: AnalyticsUser) {
-        cleverTap?.removeValueForKey(user.id.toString())
-        cleverTap?.removeValueForKey(user.identifier)
+        user.getProperties().forEach { (key: String, _: Any?) ->
+            cleverTap?.removeValueForKey(key)
+        }
     }
 
     override fun setUserLogged() {
