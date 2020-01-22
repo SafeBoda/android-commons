@@ -32,11 +32,3 @@ fun MutableMap<String, AnalyticsValue<out Any?>>.mapToJsonObjectFromAnalyticsVal
         put(map.key, map.value.getSafeValue())
     }
 }
-
-fun MutableMap<String, AnalyticsValue<out Any?>>.mutableMapToMapFromAnalyticsValue(): Map<String, Any?> {
-    val mutableMap = mutableMapOf<String, Any?>()
-    this.forEach { map ->
-        mutableMap[map.key] = map.value.getSafeValue()
-    }
-    return mutableMap.toMap()
-}
