@@ -141,5 +141,5 @@ class FacebookAnalyticsProvider : AnalyticsProvider {
 
 In order to upload a new version to JFrog you will have to follow these steps: 
 
-- Open `local.properties` file and write these two variables: `bintray.user` with your bintray username and `bintray.apikey` with your bintray api key (You can find it in `bintray.com->Go to your username->Edit Profile->API Key`). <b>Do not use quotes in `local.properties`</b>
+- Open `local.properties` file and write these two variables: `bintray.user` with your bintray username and `bintray.key` with your bintray api key (You can find it in `bintray.com->Go to your username->Edit Profile->API Key`). <b>Do not use quotes in `local.properties`</b>
 - Execute this command in the Android Studio terminal `./gradlew install` and then `./gradlew bintrayUpload`.
