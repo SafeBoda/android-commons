@@ -21,6 +21,9 @@ ext {
     //Amplitude
     amplitudeVersion = '2.23.2'
 
+    // Clever Tap
+    cleverTapVersion = '3.6.3'
+
     //Bintray
     bintrayRepo = 'android'
     bintrayName = 'android-commons'
