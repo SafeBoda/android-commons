@@ -9,11 +9,7 @@ abstract class AnalyticsUser(
 
     private val properties: MutableMap<String, Any?> = mutableMapOf(
         USER_ID to id,
-        USER_IDENTIFIER to identifier,
-        USER_NAME to firstName,
-        USER_IDENTITY to id,
-        USER_EMAIL to email,
-        USER_PHONE to identifier
+        USER_IDENTIFIER to identifier
     )
 
     fun getProperties(): Map<String, Any?> = properties
