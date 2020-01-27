@@ -20,6 +20,8 @@ class AnalyticsServiceUnitTest {
     @Mock
     private lateinit var analyticsProvider: AnalyticsProvider
 
+    private val user = providesAnalyticsUser()
+
     @Before
     fun setUp() {
         analyticsService = AnalyticsService(listOf(analyticsProvider))
@@ -32,8 +34,6 @@ class AnalyticsServiceUnitTest {
 
     @Test
     fun `setUser should save the user for each AnalyticsProvider`() {
-        val user = providesAnalyticsUser()
-
         analyticsService.setUser(user)
 
         analyticsService.analyticsProviders.forEach { provider ->
@@ -43,10 +43,10 @@ class AnalyticsServiceUnitTest {
 
     @Test
     fun `setUserLogged should clear the user for each Analytic provider`() {
-        analyticsService.clearUser()
+        analyticsService.clearUser(user)
 
         analyticsService.analyticsProviders.forEach { provider ->
-            verify(provider).clearUser()
+            verify(provider).clearUser(user)
         }
     }
 
