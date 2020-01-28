@@ -3,10 +3,7 @@ package com.safeboda.commons.analytics.provider
 import android.app.Activity
 import android.content.Context
 import com.clevertap.android.sdk.CleverTapAPI
-import com.safeboda.commons.analytics.entity.AnalyticsEvent
-import com.safeboda.commons.analytics.entity.AnalyticsEventFactory
-import com.safeboda.commons.analytics.entity.AnalyticsUser
-import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
+import com.safeboda.commons.analytics.entity.*
 
 class CleverTapAnalyticsProvider(
     context: Context
@@ -15,7 +12,14 @@ class CleverTapAnalyticsProvider(
     private val cleverTap = CleverTapAPI.getDefaultInstance(context)
 
     override fun setUser(user: AnalyticsUser) {
-        cleverTap?.pushProfile(user.getProperties())
+        val profileUpdate: MutableMap<String, Any?> = mutableMapOf(
+            USER_NAME to user.firstName,
+            USER_IDENTITY to user.identifier,
+            USER_EMAIL to user.email,
+            USER_PHONE to user.identifier
+        )
+        profileUpdate.putAll(user.getProperties())
+        cleverTap?.pushProfile(profileUpdate)
     }
 
     override fun clearUser(user: AnalyticsUser) {

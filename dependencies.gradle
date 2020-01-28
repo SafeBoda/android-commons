@@ -2,8 +2,8 @@ ext {
     // Android
     minSdkVersion = 19
     targetSdkVersion = 28
-    versionCode = 8
-    versionName = "0.0.8"
+    versionCode = 9
+    versionName = "0.0.9"
     androidCompileSdkVersion = 28
     androidCoreVersion = '1.1.0'
     androidTestRunnerVersion = '1.2.0'
