@@ -3,8 +3,8 @@ package com.safeboda.commons.analytics.entity
 abstract class AnalyticsUser(
     val id: Long?,
     val identifier: String?,
-    val firstName: String?,
-    val email: String?
+    open val firstName: String?,
+    open val email: String?
 ) {
 
     private val properties: MutableMap<String, Any?> = mutableMapOf(
