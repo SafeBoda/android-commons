@@ -22,7 +22,7 @@ class AnalyticsUserFactory {
         AnalyticsUser(
             id = id,
             identifier = identifier,
-            firstName = firstName,
+            name = firstName,
             email = email
         )
 
