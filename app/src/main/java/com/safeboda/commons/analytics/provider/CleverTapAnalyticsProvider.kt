@@ -13,8 +13,8 @@ class CleverTapAnalyticsProvider(
 
     override fun setUser(user: AnalyticsUser) {
         val profileUpdate: MutableMap<String, Any?> = mutableMapOf(
-            USER_NAME to user.firstName,
-            USER_IDENTITY to user.identifier,
+            USER_NAME to user.name,
+            USER_IDENTITY to user.id,
             USER_EMAIL to user.email,
             USER_PHONE to user.identifier
         )
