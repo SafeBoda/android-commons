@@ -16,11 +16,17 @@ val analyticsService = AnalyticsService(listOf(GoogleAnalyticsProvider()))
 #### Create your own AnalyticsUser:
 ```kotlin
 class SafeBodaAnalyticsUser(
-    id: Long,
-    phoneNumber: String,
-    firstName: String,
-    lastName: String
-) : AnalyticsUser(id = id, identifier = phoneNumber) {
+    val id: Long,
+    val phoneNumber: String,
+    val firstName: String,
+    val lastName: String,
+    override val email: String? = null,
+) : AnalyticsUser(
+    id = userId,
+    identifier = phoneNumber,
+    name = "$firstName $lastName",
+    email = email
+) {
 
     init {
         addProperty(FIRST_NAME, firstName)
