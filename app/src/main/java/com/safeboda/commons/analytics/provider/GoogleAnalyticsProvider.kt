@@ -47,6 +47,10 @@ class GoogleAnalyticsProvider(
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, bundle)
     }
 
+    override fun setFcmToken(token: String) {
+        // NO-OP
+    }
+
     override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
         activity?.let { safeActivity ->
             firebaseAnalytics.setCurrentScreen(safeActivity, screenName, overrideScreenClass)
