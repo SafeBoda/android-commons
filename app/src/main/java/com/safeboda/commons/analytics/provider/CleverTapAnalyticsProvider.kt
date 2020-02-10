@@ -47,6 +47,10 @@ class CleverTapAnalyticsProvider(
         }
     }
 
+    override fun setFcmToken(token: String) {
+        cleverTap?.pushFcmRegistrationId(token, true)
+    }
+
     private fun setUserSessionStatus(isLoggedIn: Boolean) {
         val profileUpdate = HashMap<String, Any>().apply {
             put(IS_USER_LOGGED_IN, isLoggedIn)

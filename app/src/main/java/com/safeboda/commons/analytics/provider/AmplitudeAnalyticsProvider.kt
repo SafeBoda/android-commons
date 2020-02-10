@@ -47,6 +47,10 @@ class AmplitudeAnalyticsProvider(
         amplitude.setUserProperties(jsonObject)
     }
 
+    override fun setFcmToken(token: String) {
+        // NO-OP
+    }
+
     override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
         activity?.let {
             val event: AnalyticsEvent = AnalyticsEventFactory.createAnalyticsEvent<AnalyticsEvent>(name = screenName)

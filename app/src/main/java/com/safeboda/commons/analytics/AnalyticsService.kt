@@ -29,6 +29,10 @@ class AnalyticsService(
         analyticsProviders.forEach { provider -> provider.track(event) }
     }
 
+    override fun setFcmToken(token: String) {
+        analyticsProviders.forEach { provider -> provider.setFcmToken(token) }
+    }
+
     /**
      * @param[screenName] should be the name of the event
      * @param[overrideScreenClass] should be null for Activities and for Fragments should be the name of the Fragment class

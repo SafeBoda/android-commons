@@ -18,4 +18,6 @@ interface AnalyticsProvider {
 
     fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?)
 
+    fun setFcmToken(token: String)
+
 }
