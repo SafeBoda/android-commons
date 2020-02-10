@@ -3,7 +3,7 @@ package com.safeboda.commons.analytics.entity
 abstract class AnalyticsUser(
     val id: Long?,
     val identifier: String?,
-    open val name: String?,
+    val name: String?,
     open val email: String?
 ) {
 
