@@ -19,13 +19,11 @@ class CleverTapAnalyticsProvider(
             USER_PHONE to user.identifier
         )
         profileUpdate.putAll(user.getProperties())
-        cleverTap?.pushProfile(profileUpdate)
+        cleverTap?.onUserLogin(profileUpdate)
     }
 
     override fun clearUser(user: AnalyticsUser) {
-        user.getProperties().forEach { (key: String, _: Any?) ->
-            cleverTap?.removeValueForKey(key)
-        }
+        // NO-OP
     }
 
     override fun setUserLogged() {
