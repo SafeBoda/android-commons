@@ -24,13 +24,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.appcompat:appcompat:$androidCoreVersion"
+    implementation "androidx.appcompat:appcompat:$androidAppCompatVersion"
     implementation "androidx.core:core-ktx:$androidCoreVersion"
 
     implementation "com.google.firebase:firebase-analytics:$googleAnalyticsVersion"
     implementation "com.amplitude:android-sdk:$amplitudeVersion"
 
     api "com.clevertap.android:clevertap-android-sdk:$cleverTapVersion"
+    api "com.android.installreferrer:installreferrer:$instalReferrerVersion"
 
     testImplementation "junit:junit:$junitVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
