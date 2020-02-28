@@ -24,7 +24,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.appcompat:appcompat:$androidCoreVersion"
+    implementation "androidx.appcompat:appcompat:$androidAppCompatVersion"
     implementation "androidx.core:core-ktx:$androidCoreVersion"
 
     implementation "com.google.firebase:firebase-analytics:$googleAnalyticsVersion"

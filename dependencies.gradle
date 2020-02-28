@@ -5,7 +5,8 @@ ext {
     versionCode = 14
     versionName = "0.0.14"
     androidCompileSdkVersion = 28
-    androidCoreVersion = '1.1.0'
+    androidCoreVersion = '1.2.0'
+    androidAppCompatVersion = '1.1.0'
     androidTestRunnerVersion = '1.2.0'
     androidTestEspressoVersion = '3.2.0'
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -16,7 +17,7 @@ ext {
     mockitoInlineVersion = '2.22.0'
 
     // Google Analytics
-    googleAnalyticsVersion = '17.2.2'
+    googleAnalyticsVersion = '17.2.3'
 
     //Amplitude
     amplitudeVersion = '2.23.2'
