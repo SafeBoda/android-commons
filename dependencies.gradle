@@ -22,7 +22,10 @@ ext {
     amplitudeVersion = '2.23.2'
 
     // Clever Tap
-    cleverTapVersion = '3.6.3'
+    cleverTapVersion = '3.6.4'
+
+    // InstallReferrer
+    instalReferrerVersion = '1.1.1'
 
     //Bintray
     bintrayRepo = 'android'

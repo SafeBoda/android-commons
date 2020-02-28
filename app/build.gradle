@@ -31,6 +31,7 @@ dependencies {
     implementation "com.amplitude:android-sdk:$amplitudeVersion"
 
     api "com.clevertap.android:clevertap-android-sdk:$cleverTapVersion"
+    api "com.android.installreferrer:installreferrer:$instalReferrerVersion"
 
     testImplementation "junit:junit:$junitVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
