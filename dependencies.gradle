@@ -2,8 +2,8 @@ ext {
     // Android
     minSdkVersion = 19
     targetSdkVersion = 28
-    versionCode = 15
-    versionName = "0.0.15"
+    versionCode = 16
+    versionName = "0.0.16"
     androidCompileSdkVersion = 28
     androidCoreVersion = '1.2.0'
     androidAppCompatVersion = '1.1.0'
@@ -23,7 +23,7 @@ ext {
     amplitudeVersion = '2.23.2'
 
     // Clever Tap
-    cleverTapVersion = '3.6.4'
+    cleverTapVersion = '3.7.2'
 
     // InstallReferrer
     instalReferrerVersion = '1.1.1'
