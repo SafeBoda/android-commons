@@ -26,7 +26,10 @@ ext {
     cleverTapVersion = '3.7.2'
 
     // InstallReferrer
-    instalReferrerVersion = '1.1.1'
+    installReferrerVersion = '1.1.2'
+
+    // AppsFlyer
+    appsFlyerVersion  = '5.4.0'
 
     //Bintray
     bintrayRepo = 'android'
