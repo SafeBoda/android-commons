@@ -6,6 +6,7 @@ import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
+import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
 
 class AppsFlyerProvider(
     val app: Application,
@@ -22,44 +23,50 @@ class AppsFlyerProvider(
         }
 
         override fun onConversionDataFail(error: String?) {
-            //Log.e(LOG_TAG, "error onAttributionFailure :  $error")
+            // TODO: //Log.e(LOG_TAG, "error onAttributionFailure :  $error")
         }
 
         override fun onAppOpenAttribution(data: MutableMap<String, String>?) {
             data?.map {
-                //Log.d(LOG_TAG, "onAppOpen_attribute: ${it.key} = ${it.value}")
+                // TODO: //Log.d(LOG_TAG, "onAppOpen_attribute: ${it.key} = ${it.value}")
             }
         }
 
         override fun onAttributionFailure(error: String?) {
-            //Log.e(LOG_TAG, "error onAttributionFailure :  $error")
+            // TODO: //Log.e(LOG_TAG, "error onAttributionFailure :  $error")
         }
 
     }
 
     private val appsFlyerInstance = AppsFlyerLib.getInstance()
         .init(apiKey, conversionDataListener, app.baseContext)
-    //.startTracking(app.baseContext)
 
     override fun setUser(user: AnalyticsUser) {
-        AppsFlyerLib.getInstance().setCustomerIdAndTrack(user.id.toString(), app.baseContext)
-        // NO-OP
+        // TODO: SET THE .startTracking(app.baseContext)
+        appsFlyerInstance.setCustomerIdAndTrack(user.id.toString(), app.baseContext)
     }
 
     override fun clearUser(user: AnalyticsUser) {
-        // NO-OP
+        //TODO: appsFlyerInstance.stopTracking(true, app.baseContext) ??
     }
 
     override fun setUserLogged() {
-        // NO-OP
+        setLoginEvent(true)
     }
 
     override fun setUserNotLogged() {
-        // NO-OP
+        setLoginEvent(false)
+    }
+
+    private fun setLoginEvent(isLogged: Boolean) {
+        val profileUpdate = HashMap<String, Any>().apply {
+            put(IS_USER_LOGGED_IN, isLogged)
+        }
+        appsFlyerInstance.trackEvent(app.baseContext, IS_USER_LOGGED_IN, profileUpdate.toMap())
     }
 
     override fun track(event: AnalyticsEvent) {
-        AppsFlyerLib.getInstance().trackEvent(app.baseContext, event.name, event.toMap())
+        appsFlyerInstance.trackEvent(app.baseContext, event.name, event.toMap())
     }
 
     override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
