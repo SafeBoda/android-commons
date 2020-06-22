@@ -1,7 +1,7 @@
 package com.safeboda.commons.analytics.provider
 
 import android.app.Activity
-import android.app.Application
+import android.content.Context
 import android.util.Log
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
@@ -12,7 +12,7 @@ import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
 private const val LOG_TAG = "AppsFlyerProvider"
 
 class AppsFlyerProvider(
-    val app: Application,
+    val context: Context,
     apiKey: String
 ) : AnalyticsProvider {
 
@@ -42,15 +42,15 @@ class AppsFlyerProvider(
     }
 
     private val appsFlyerInstance = AppsFlyerLib.getInstance()
-        .init(apiKey, conversionDataListener, app.baseContext)
+        .init(apiKey, conversionDataListener, context)
 
     override fun setUser(user: AnalyticsUser) {
         // TODO: SET THE .startTracking(app.baseContext)
-        appsFlyerInstance.setCustomerIdAndTrack(user.id.toString(), app.baseContext)
+        appsFlyerInstance.setCustomerIdAndTrack(user.id.toString(), context)
     }
 
     override fun clearUser(user: AnalyticsUser) {
-        // appsFlyerInstance.stopTracking(true, app.baseContext)
+        appsFlyerInstance.stopTracking(true, context)
     }
 
     override fun setUserLogged() {
@@ -65,11 +65,11 @@ class AppsFlyerProvider(
         val profileUpdate = HashMap<String, Any>().apply {
             put(IS_USER_LOGGED_IN, isLogged)
         }
-        appsFlyerInstance.trackEvent(app.baseContext, IS_USER_LOGGED_IN, profileUpdate.toMap())
+        appsFlyerInstance.trackEvent(context, IS_USER_LOGGED_IN, profileUpdate.toMap())
     }
 
     override fun track(event: AnalyticsEvent) {
-        appsFlyerInstance.trackEvent(app.baseContext, event.name, event.toMap())
+        appsFlyerInstance.trackEvent(context, event.name, event.toMap())
     }
 
     override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
