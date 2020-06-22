@@ -2,11 +2,14 @@ package com.safeboda.commons.analytics.provider
 
 import android.app.Activity
 import android.app.Application
+import android.util.Log
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
+
+private const val LOG_TAG = "AppsFlyerProvider"
 
 class AppsFlyerProvider(
     val app: Application,
@@ -17,23 +20,23 @@ class AppsFlyerProvider(
         override fun onConversionDataSuccess(data: MutableMap<String, Any>?) {
             data?.let { cvData ->
                 cvData.map {
-                    //Log.i(LOG_TAG, "conversion_attribute:  ${it.key} = ${it.value}")
+                    Log.i(LOG_TAG, "onConversionDataSuccess conversion_attribute:  ${it.key} = ${it.value}")
                 }
             }
         }
 
         override fun onConversionDataFail(error: String?) {
-            // TODO: //Log.e(LOG_TAG, "error onAttributionFailure :  $error")
+            Log.e(LOG_TAG, "onConversionDataFail error onAttributionFailure :  $error")
         }
 
         override fun onAppOpenAttribution(data: MutableMap<String, String>?) {
             data?.map {
-                // TODO: //Log.d(LOG_TAG, "onAppOpen_attribute: ${it.key} = ${it.value}")
+                Log.d(LOG_TAG, "onAppOpenAttribution onAppOpen_attribute: ${it.key} = ${it.value}")
             }
         }
 
         override fun onAttributionFailure(error: String?) {
-            // TODO: //Log.e(LOG_TAG, "error onAttributionFailure :  $error")
+            Log.e(LOG_TAG, "onAttributionFailure error onAttributionFailure :  $error")
         }
 
     }
@@ -47,7 +50,7 @@ class AppsFlyerProvider(
     }
 
     override fun clearUser(user: AnalyticsUser) {
-        //TODO: appsFlyerInstance.stopTracking(true, app.baseContext) ??
+        // appsFlyerInstance.stopTracking(true, app.baseContext)
     }
 
     override fun setUserLogged() {
