@@ -11,7 +11,7 @@ import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
 
 private const val LOG_TAG = "AppsFlyerProvider"
 
-class AppsFlyerProvider(
+class AppsFlyerAnalyticsProvider(
     private val context: Context,
     apiKey: String
 ) : AnalyticsProvider {
