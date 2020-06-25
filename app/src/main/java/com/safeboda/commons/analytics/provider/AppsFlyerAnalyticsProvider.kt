@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
+import com.appsflyer.AppsFlyerTrackingRequestListener
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
@@ -13,7 +14,7 @@ private const val LOG_TAG = "AppsFlyerProvider"
 
 class AppsFlyerAnalyticsProvider(
     private val context: Context,
-    apiKey: String
+    private val apiKey: String
 ) : AnalyticsProvider {
 
     private val conversionDataListener: AppsFlyerConversionListener = object : AppsFlyerConversionListener {
@@ -41,6 +42,17 @@ class AppsFlyerAnalyticsProvider(
 
     }
 
+    private val trackingRequestListener: AppsFlyerTrackingRequestListener = object : AppsFlyerTrackingRequestListener {
+        override fun onTrackingRequestSuccess() {
+            Log.d(LOG_TAG, "trackingListener onTrackingRequestSuccess")
+        }
+
+        override fun onTrackingRequestFailure(error: String?) {
+            Log.d(LOG_TAG, "trackingListener onTrackingRequestFailure :  $error")
+        }
+
+    }
+
     private val appsFlyerInstance = AppsFlyerLib.getInstance()
         .init(apiKey, conversionDataListener, context)
 
@@ -49,8 +61,9 @@ class AppsFlyerAnalyticsProvider(
 
         appsFlyerInstance.setDebugLog(true)
 
-        appsFlyerInstance.startTracking(context)
         appsFlyerInstance.setCustomerIdAndTrack(user.id.toString(), context)
+
+        appsFlyerInstance.startTracking(context, apiKey, trackingRequestListener)
     }
 
     override fun clearUser(user: AnalyticsUser) {
