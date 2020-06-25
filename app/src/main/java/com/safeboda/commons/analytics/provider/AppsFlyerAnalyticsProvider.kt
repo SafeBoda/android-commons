@@ -46,6 +46,10 @@ class AppsFlyerAnalyticsProvider(
 
     override fun setUser(user: AnalyticsUser) {
         // TODO: SET THE .startTracking(app.baseContext)
+
+        appsFlyerInstance.setDebugLog(true)
+
+        appsFlyerInstance.startTracking(context)
         appsFlyerInstance.setCustomerIdAndTrack(user.id.toString(), context)
     }
 
