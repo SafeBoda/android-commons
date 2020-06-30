@@ -49,7 +49,7 @@ class AppsFlyerAnalyticsProvider(
         }
 
         override fun onTrackingRequestFailure(error: String?) {
-            Log.d(LOG_TAG, "trackingListener onTrackingRequestFailure :  $error")
+            Log.e(LOG_TAG, "trackingListener onTrackingRequestFailure :  $error")
         }
 
     }
