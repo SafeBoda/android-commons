@@ -14,7 +14,8 @@ private const val LOG_TAG = "AppsFlyerProvider"
 
 class AppsFlyerAnalyticsProvider(
     private val context: Context,
-    private val apiKey: String
+    private val apiKey: String,
+    private val isDebugMode: Boolean
 ) : AnalyticsProvider {
 
     private val conversionDataListener: AppsFlyerConversionListener = object : AppsFlyerConversionListener {
@@ -57,9 +58,9 @@ class AppsFlyerAnalyticsProvider(
         .init(apiKey, conversionDataListener, context)
 
     override fun setUser(user: AnalyticsUser) {
-        // TODO: SET THE .startTracking(app.baseContext)
-
-        appsFlyerInstance.setDebugLog(true)
+        if (isDebugMode) {
+            appsFlyerInstance.setDebugLog(true)
+        }
 
         appsFlyerInstance.setCustomerIdAndTrack(user.id.toString(), context)
 
