@@ -1,10 +1,10 @@
 ext {
     // Android
     minSdkVersion = 19
-    targetSdkVersion = 28
-    versionCode = 16
-    versionName = "0.0.16"
-    androidCompileSdkVersion = 28
+    targetSdkVersion = 29
+    versionCode = 18
+    versionName = "0.0.18"
+    androidCompileSdkVersion = 29
     androidCoreVersion = '1.2.0'
     androidAppCompatVersion = '1.1.0'
     androidTestRunnerVersion = '1.2.0'
@@ -26,7 +26,10 @@ ext {
     cleverTapVersion = '3.7.2'
 
     // InstallReferrer
-    instalReferrerVersion = '1.1.1'
+    installReferrerVersion = '1.1.2'
+
+    // AppsFlyer
+    appsFlyerVersion = '5.4.0'
 
     //Bintray
     bintrayRepo = 'android'
