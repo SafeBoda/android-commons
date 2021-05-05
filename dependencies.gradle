@@ -3,7 +3,7 @@ ext {
     minSdkVersion = 19
     targetSdkVersion = 29
     versionCode = 18
-    versionName = "0.0.18"
+    versionName = "0.0.19"
     androidCompileSdkVersion = 29
     androidCoreVersion = '1.2.0'
     androidAppCompatVersion = '1.1.0'
@@ -17,19 +17,19 @@ ext {
     mockitoInlineVersion = '2.22.0'
 
     // Google Analytics
-    googleAnalyticsVersion = '17.2.3'
+    googleAnalyticsVersion = '18.0.3'
 
     //Amplitude
     amplitudeVersion = '2.23.2'
 
     // Clever Tap
-    cleverTapVersion = '3.7.2'
+    cleverTapVersion = '4.1.1'
 
     // InstallReferrer
-    installReferrerVersion = '1.1.2'
+    installReferrerVersion = '2.2'
 
     // AppsFlyer
-    appsFlyerVersion = '5.4.0'
+    appsFlyerVersion = '6.3.0'
 
     //Bintray
     bintrayRepo = 'android'

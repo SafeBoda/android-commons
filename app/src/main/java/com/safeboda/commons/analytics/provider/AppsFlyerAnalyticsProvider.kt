@@ -5,7 +5,7 @@ import android.content.Context
 import android.util.Log
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
-import com.appsflyer.AppsFlyerTrackingRequestListener
+import com.appsflyer.attribution.AppsFlyerRequestListener
 import com.safeboda.commons.analytics.entity.AnalyticsEvent
 import com.safeboda.commons.analytics.entity.AnalyticsUser
 import com.safeboda.commons.analytics.entity.IS_USER_LOGGED_IN
@@ -43,15 +43,14 @@ class AppsFlyerAnalyticsProvider(
 
     }
 
-    private val trackingRequestListener: AppsFlyerTrackingRequestListener = object : AppsFlyerTrackingRequestListener {
-        override fun onTrackingRequestSuccess() {
+    private val trackingRequestListener: AppsFlyerRequestListener = object : AppsFlyerRequestListener {
+        override fun onSuccess() {
             Log.d(LOG_TAG, "trackingListener onTrackingRequestSuccess")
         }
 
-        override fun onTrackingRequestFailure(error: String?) {
-            Log.e(LOG_TAG, "trackingListener onTrackingRequestFailure :  $error")
+        override fun onError(code: Int, error: String) {
+            Log.e(LOG_TAG, "trackingListener onTrackingRequestFailure : code $code - error $error")
         }
-
     }
 
     private val appsFlyerInstance = AppsFlyerLib.getInstance()
@@ -62,13 +61,13 @@ class AppsFlyerAnalyticsProvider(
             appsFlyerInstance.setDebugLog(true)
         }
 
-        appsFlyerInstance.setCustomerIdAndTrack(user.id.toString(), context)
+        appsFlyerInstance.setCustomerIdAndLogSession(user.id.toString(), context)
 
-        appsFlyerInstance.startTracking(context, apiKey, trackingRequestListener)
+        appsFlyerInstance.start(context, apiKey, trackingRequestListener)
     }
 
     override fun clearUser(user: AnalyticsUser) {
-        appsFlyerInstance.stopTracking(true, context)
+        appsFlyerInstance.stop(true, context)
     }
 
     override fun setUserLogged() {
@@ -83,11 +82,11 @@ class AppsFlyerAnalyticsProvider(
         val profileUpdate = HashMap<String, Any>().apply {
             put(IS_USER_LOGGED_IN, isLogged)
         }
-        appsFlyerInstance.trackEvent(context, IS_USER_LOGGED_IN, profileUpdate.toMap())
+        appsFlyerInstance.logEvent(context, IS_USER_LOGGED_IN, profileUpdate.toMap())
     }
 
     override fun track(event: AnalyticsEvent) {
-        appsFlyerInstance.trackEvent(context, event.name, event.toMap())
+        appsFlyerInstance.logEvent(context, event.name, event.toMap())
     }
 
     override fun trackScreen(activity: Activity?, screenName: String, overrideScreenClass: String?) {
