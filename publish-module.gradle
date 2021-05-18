@@ -40,6 +40,12 @@ afterEvaluate {
                     name = PUBLISH_ARTIFACT_ID
                     description = 'The aim of this library is to content the commons services, providers, API clients, ... for both Android applications. This library must not contain anything related with the presentation layer of Android (base activities, base fragments, custom views ...)'
                     url = 'https://github.com/SafeBoda/android-commons'
+                    licenses {
+                        license {
+                            name = 'SafeBoda License'
+                            url = 'https://github.com/SafeBoda/paystackex/blob/master/LICENSE'
+                        }
+                    }
                     developers {
                         developer {
                             id = 'alaash-sb'
