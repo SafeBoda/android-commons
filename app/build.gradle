@@ -51,3 +51,11 @@ if (project.rootProject.file('local.properties').exists()) {
 tasks.withType(Javadoc) {
     excludes = ['**/*.kt']
 }
+
+ext {
+    PUBLISH_GROUP_ID = 'com.safeboda'
+    PUBLISH_VERSION = '0.0.19'
+    PUBLISH_ARTIFACT_ID = 'android-commons'
+}
+
+apply from: "${rootProject.projectDir}/publish-module.gradle"

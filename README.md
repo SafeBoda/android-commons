@@ -143,9 +143,12 @@ class FacebookAnalyticsProvider : AnalyticsProvider {
 
 ## Utils
 
-### How to upload to bintray
+### How to upload to MavenCentral
 
-In order to upload a new version to JFrog you will have to follow these steps: 
+In order to upload a new version to MavenCenrtal you will have to follow these steps:
 
-- Open `local.properties` file and write these two variables: `bintray.user` with your bintray username and `bintray.key` with your bintray api key (You can find it in `bintray.com->Go to your username->Edit Profile->API Key`). <b>Do not use quotes in `local.properties`</b>
-- Execute this command in the Android Studio terminal `./gradlew install` and then `./gradlew bintrayUpload`.
+- Open `local.properties` file and write these variables: `signing.keyId` with your gpg key and `sonatypeStagingProfileId` with your profile id, `signing.password` with your sonaType password, `signing.secretKeyRingFile` with your gpg key location, `ossrhUsername` and  `ossrhPassword` with your sonatype cradentials . <b>Do not use quotes in `local.properties`</b>
+- Execute this command in the Android Studio terminal ` ./gradlew app:publishReleasePublicationToSonatypeRepository --stacktrace
+`
+
+- You can follow this guide for more info - https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#automating-sonatype-actions
