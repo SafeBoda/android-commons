@@ -17,27 +17,24 @@ artifacts {
     archives javadocJar
 }
 
-group = PUBLISH_GROUP_ID
-version = PUBLISH_VERSION
-
 afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId PUBLISH_GROUP_ID
-                artifactId PUBLISH_ARTIFACT_ID
-                version PUBLISH_VERSION
+                groupId publishedGroupId
+                artifactId artifact
+                version versionName
                 if (project.plugins.findPlugin("com.android.library")) {
                     from components.release
                 } else {
-                    artifact("$buildDir/libs/${project.getName()}-${version}.jar")
+                    artifact("$buildDir/libs/${project.getName()}-${versionName}.jar")
                 }
 
                 artifact androidSourcesJar
                 artifact javadocJar
 
                 pom {
-                    name = PUBLISH_ARTIFACT_ID
+                    name = artifact
                     description = 'The aim of this library is to content the commons services, providers, API clients, ... for both Android applications. This library must not contain anything related with the presentation layer of Android (base activities, base fragments, custom views ...)'
                     url = 'https://github.com/SafeBoda/android-commons'
                     licenses {
