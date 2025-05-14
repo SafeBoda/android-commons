@@ -30,9 +30,7 @@ dependencies {
     implementation "com.google.firebase:firebase-analytics:$googleAnalyticsVersion"
     implementation "com.amplitude:android-sdk:$amplitudeVersion"
 
-    api "com.clevertap.android:clevertap-android-sdk:$cleverTapVersion"
     api "com.android.installreferrer:installreferrer:$installReferrerVersion"
-    api 'com.clevertap.android:clevertap-rendermax-sdk:1.0.2'
 
     testImplementation "junit:junit:$junitVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"

@@ -22,9 +22,6 @@ ext {
     //Amplitude
     amplitudeVersion = '2.23.2'
 
-    // Clever Tap
-    cleverTapVersion = '4.6.7'
-
     // InstallReferrer
     installReferrerVersion = '2.2'
 
